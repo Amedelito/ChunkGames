@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chunk Games — Minecraft Events</title>
+<meta name="description" content="Chunk Games — Minecraft events, maps, community and news.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07080d;--surface:#0e111a;--surface2:#141827;--line:#ffffff13;--text:#f8f9ff;--muted:#9ca2b2;--cyan:#63e8ff;--violet:#9b7cff;--pink:#ff63c9;--green:#71f3aa;--gold:#ffd66b;--ease:cubic-bezier(.16,1,.3,1)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;overflow-x:hidden}button,input,textarea{font:inherit}button{color:inherit}a{color:inherit;text-decoration:none}
+body:before{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.bg{position:fixed;inset:0;z-index:-4;overflow:hidden;background:radial-gradient(circle at 50% -15%,#30265c,#0b0d15 45%,#07080d 78%)}.grid{position:absolute;inset:-20%;background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);background-size:72px 72px;opacity:.025;transform:perspective(750px) rotateX(64deg) translateY(20%);animation:grid 20s linear infinite}@keyframes grid{to{background-position:0 720px,720px 0}}
+.orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:.2;animation:orb 13s var(--ease) infinite alternate}.orb.a{width:500px;height:500px;background:#765aff;left:-190px;top:15%}.orb.b{width:460px;height:460px;background:#22d7ff;right:-180px;top:38%;animation-delay:-4s}.orb.c{width:380px;height:380px;background:#ff42b8;left:40%;bottom:-220px;animation-delay:-8s}@keyframes orb{to{transform:translate(100px,-70px) scale(1.18)}}
+#particles{position:fixed;inset:0;pointer-events:none;z-index:-1}.particle{position:absolute;width:2px;height:2px;border-radius:50%;background:white;opacity:.3;animation:particle linear infinite}@keyframes particle{from{transform:translateY(105vh)}to{transform:translateY(-10vh)}}
+header{z-index:200;position:fixed;top:14px;left:50%;transform:translateX(-50%);width:min(1220px,calc(100% - 24px));z-index:100}.nav{height:70px;border:1px solid var(--line);border-radius:23px;background:#090b12aa;backdrop-filter:blur(25px);display:flex;align-items:center;padding:8px;box-shadow:0 25px 80px #0009,inset 0 1px #fff08}
+.brand{height:52px;display:flex;align-items:center;gap:11px;padding:4px 12px;cursor:pointer;flex-shrink:0}.brand-logo{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#fff,#b9aaff 45%,#61eaff);padding:1px;box-shadow:0 0 35px #8b76ff55}.brand-logo svg{width:100%;height:100%;border-radius:13px;display:block;filter:drop-shadow(0 0 12px #63e8ff35);transition:.5s var(--ease)}.brand:hover .brand-logo svg{transform:rotate(-3deg) scale(1.05)}.brand b{font-family:"Space Grotesk";font-size:16px}.brand small{display:block;font-size:8px;color:#858b9b;letter-spacing:1.5px;margin-top:2px}
+.tabs{display:flex;gap:2px;flex:1;justify-content:center}.tabs button{background:transparent;border:0;padding:11px 13px;color:#969baa;border-radius:13px;cursor:pointer;transition:.45s var(--ease);position:relative}.tabs button:after{content:"";position:absolute;height:2px;left:14px;right:14px;bottom:5px;background:linear-gradient(90deg,var(--violet),var(--cyan));transform:scaleX(0);transition:.45s var(--ease);border-radius:9px}.tabs button:hover{color:#fff;background:#fff06;transform:translateY(-2px)}.tabs button.active{color:#fff;background:#fff08}.tabs button.active:after{transform:scaleX(1)}
+.actions{display:flex;gap:5px}.topbtn{width:42px;height:42px;display:grid;place-items:center;border:1px solid var(--line);background:#ffffff06;border-radius:13px;padding:0;cursor:pointer;color:#bfc2ce;transition:.4s var(--ease);flex:none}.topbtn svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.topbtn:hover{transform:translateY(-3px);background:#fff0b;color:#fff;border-color:#fff2}
+.page{position:relative;z-index:1;width:min(1180px,calc(100% - 28px));margin:auto;display:none;min-height:calc(100vh - 95px);padding:135px 0 70px;animation:pageIn .65s var(--ease)}.page.active{display:block}@keyframes pageIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero{min-height:calc(100vh - 130px);display:grid;place-items:center;text-align:center;padding-top:20px}.eyebrow{display:inline-flex;align-items:center;border:1px solid var(--line);background:#ffffff07;padding:8px 13px;border-radius:999px;color:#d9dbe3;font-size:11px;letter-spacing:1.5px}.live{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 14px var(--green);margin-right:8px;animation:pulse 1.8s infinite}@keyframes pulse{50%{transform:scale(1.8);opacity:.5}}
+h1,h2,h3{font-family:"Space Grotesk"}h1{font-size:clamp(58px,10vw,122px);line-height:.84;letter-spacing:-7px;margin:30px auto 24px;max-width:1050px}.gradient{background:linear-gradient(100deg,#fff,#c8c0ff,#6beaff,#fff);background-size:250% auto;color:transparent;background-clip:text;-webkit-background-clip:text;animation:shine 7s linear infinite}@keyframes shine{to{background-position:250% center}}
+.hero p{max-width:700px;margin:auto;color:var(--muted);line-height:1.75}.cta{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:30px}.btn{border:1px solid var(--line);background:#fff07;border-radius:15px;padding:13px 18px;cursor:pointer;transition:.5s var(--ease);position:relative;overflow:hidden}.btn:hover{transform:translateY(-4px);box-shadow:0 18px 60px #0008,0 0 35px #7564ff1c}.btn.primary{border:0;background:linear-gradient(135deg,#9578ff,#5ce4f8);color:#080910;font-weight:800}.btn:before{content:"";position:absolute;inset:-100%;background:linear-gradient(100deg,transparent 42%,#fff4 50%,transparent 58%);transform:translateX(-50%);transition:.8s}.btn:hover:before{transform:translateX(50%)}
+.section-top{display:flex;position:relative;z-index:2;justify-content:space-between;align-items:end;gap:30px;margin-bottom:30px}.kicker{font-size:10px;font-weight:900;letter-spacing:2.5px;color:var(--cyan);margin-bottom:10px}.section-top h2{font-size:clamp(40px,6vw,70px);line-height:.9;letter-spacing:-3px}.section-top p{max-width:440px;color:var(--muted);line-height:1.7;font-size:13px}
+.panel{border:1px solid var(--line);background:linear-gradient(145deg,#ffffff09,#ffffff03);border-radius:26px;box-shadow:0 25px 90px #0005;overflow:hidden}.panel-pad{padding:24px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.card{padding:22px;min-height:190px;transition:.55s var(--ease);position:relative;overflow:hidden}.card:hover{transform:translateY(-8px);border-color:#fff2;box-shadow:0 25px 80px #0008}.card h3{font-size:21px;margin:10px 0}.card p{color:var(--muted);font-size:13px;line-height:1.7}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}.stat{padding:18px;border:1px solid var(--line);border-radius:18px;background:#fff04}.stat strong{font-family:"Space Grotesk";font-size:25px}.stat span{display:block;color:#7e8392;font-size:10px;margin-top:4px}
+.event-feature{display:grid;grid-template-columns:1.25fr .75fr;min-height:520px}.event-image{position:relative;overflow:hidden;min-height:520px}.event-image img{width:100%;height:100%;object-fit:cover;display:block;transition:1s var(--ease)}.event-image:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 35%,#080a10)}.event-feature:hover img{transform:scale(1.045)}.event-info{padding:38px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(145deg,#141727,#0d0f18)}.tag{display:inline-block;width:max-content;padding:7px 10px;border-radius:99px;border:1px solid #fff1;background:#fff07;font-size:9px;font-weight:900;letter-spacing:1.2px;color:var(--green)}.tag.soon{color:var(--pink)}.event-info h3{font-size:46px;line-height:.95;margin:18px 0 13px;letter-spacing:-2px}.event-info p{color:var(--muted);line-height:1.75;font-size:13px}.big-prize{font-family:"Space Grotesk";font-size:30px;color:var(--gold);margin:20px 0}.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:15px}.gallery figure{height:180px;border-radius:18px;overflow:hidden;border:1px solid var(--line);position:relative;background:#111}.gallery img{width:100%;height:100%;object-fit:cover;transition:.7s var(--ease)}.gallery figure:hover img{transform:scale(1.08)}.gallery figcaption{position:absolute;left:10px;bottom:10px;font-size:9px;padding:6px 8px;border-radius:99px;background:#05060aaa;backdrop-filter:blur(10px)}
+.winner-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:15px}.winner-main{position:relative;min-height:450px;overflow:hidden}.winner-main img{width:100%;height:100%;object-fit:cover}.winner-main:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#080a10 0%,transparent 60%)}.winner-copy{position:absolute;left:28px;bottom:25px;z-index:2}.winner-copy h3{font-size:38px}.winner-copy p{color:#b0b5c3;margin-top:6px}.side-info{padding:25px;display:flex;flex-direction:column;justify-content:center}.side-info h3{font-size:28px;margin-bottom:10px}.side-info p{color:var(--muted);font-size:13px;line-height:1.7}.skin-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.person{min-height:470px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}.person .skin{position:absolute;inset:0;display:grid;place-items:end center;background:radial-gradient(circle at 50% 35%,#242a44,#0c0f17 70%)}.person .skin img{height:88%;max-width:90%;object-fit:contain;filter:drop-shadow(0 25px 25px #0008);transition:.8s var(--ease)}.person:hover .skin img{transform:translateY(-12px) rotate(2deg) scale(1.05)}.person .copy{position:relative;z-index:2;padding:22px;background:linear-gradient(transparent,#080a10 22%)}.person .copy h3{font-size:25px}.person .copy p{font-size:11px;color:#aab0bf;margin-top:5px}.verified{font-size:9px;color:var(--green);letter-spacing:1px;margin-top:8px}
+.news-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.news-image{height:240px;overflow:hidden}.news-image img{width:100%;height:100%;object-fit:cover;transition:.7s var(--ease)}.news-card:hover .news-image img{transform:scale(1.05)}.news-copy{padding:22px}.news-copy small{color:var(--cyan);font-size:9px;letter-spacing:1px}.news-copy h3{font-size:24px;margin:9px 0}.news-copy p{color:var(--muted);font-size:12px;line-height:1.7}
+.community{display:grid;grid-template-columns:1fr 1fr;gap:15px}.suggest-form textarea{width:100%;height:150px;background:#080a10;border:1px solid var(--line);border-radius:17px;color:#fff;padding:15px;outline:none;resize:vertical}.suggestions{display:grid;gap:10px}.suggestion{padding:17px;border:1px solid var(--line);border-radius:17px;background:#fff04}.suggestion b{font-size:12px}.suggestion p{font-size:12px;color:#adb2c0;line-height:1.6;margin-top:6px}.suggestion small{color:#656b79;font-size:9px}
+.donate{display:grid;grid-template-columns:1fr 1fr;gap:15px}.donate .panel{padding:30px}.donate h3{font-size:30px}.donate p{color:var(--muted);font-size:13px;line-height:1.7;margin:10px 0 20px}
+.site-footer{width:min(1180px,calc(100% - 28px));margin:35px auto 25px;border-top:1px solid var(--line);padding-top:38px;color:#73798a}.footer-main{display:grid;grid-template-columns:1.1fr 1.9fr;gap:60px}.footer-brand{display:flex;gap:14px;align-items:flex-start}.footer-logo{width:46px;height:46px;flex:none;border-radius:13px;overflow:hidden;box-shadow:0 0 28px #63e8ff18}.footer-logo svg{width:100%;height:100%}.footer-brand b{font-family:"Space Grotesk";font-size:15px;color:#eef1fa;letter-spacing:.4px}.footer-brand p{font-size:11px;line-height:1.6;margin-top:5px;color:#686e7d;max-width:260px}.footer-links{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}.footer-links div{display:flex;flex-direction:column;gap:9px}.footer-links strong{font-size:9px;letter-spacing:1.5px;color:#9ca2b2;margin-bottom:3px}.footer-links a{font-size:11px;color:#696f7e;transition:.3s var(--ease)}.footer-links a:hover{color:#fff;transform:translateX(3px)}.footer-bottom{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line);margin-top:35px;padding-top:17px;font-size:9px;line-height:1.6;color:#4f5563}.footer-bottom span:last-child{opacity:.8}@media(max-width:760px){.footer-main{grid-template-columns:1fr;gap:30px}.footer-links{grid-template-columns:repeat(3,1fr)}.footer-bottom{flex-direction:column;gap:5px}}
+.modal-bg{display:none;position:fixed;inset:0;background:#000a;backdrop-filter:blur(18px);z-index:300;align-items:center;justify-content:center;padding:20px}.modal-bg.open{display:flex}.modal{width:min(520px,100%);background:#11131d;border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:0 40px 120px #000}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.close{border:1px solid var(--line);background:#fff08;border-radius:10px;padding:7px 11px;cursor:pointer}.setting{display:flex;justify-content:space-between;align-items:center;padding:15px 0;border-bottom:1px solid var(--line);font-size:12px}.switch{width:46px;height:25px;background:#282c39;border-radius:99px;padding:3px;cursor:pointer}.switch i{display:block;width:19px;height:19px;border-radius:50%;background:#999;transition:.3s}.switch.on{background:#765fff}.switch.on i{background:#fff;transform:translateX(21px)}
+.toast{position:fixed;z-index:400;left:50%;bottom:25px;transform:translate(-50%,30px);opacity:0;background:#151824;border:1px solid #fff2;border-radius:14px;padding:12px 16px;font-size:11px;box-shadow:0 20px 70px #000;transition:.45s var(--ease)}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:900px){.tabs{display:none}.cards,.skin-grid,.stats{grid-template-columns:1fr 1fr}.event-feature,.winner-grid,.community,.donate{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr}.event-image{min-height:330px}.event-info{padding:25px}.page{padding-top:105px}}
+@media(max-width:580px){.brand small{display:none}.topbtn{padding:9px}.cards,.skin-grid,.stats,.news-grid,.gallery{grid-template-columns:1fr}h1{letter-spacing:-4px}.section-top{display:block}.section-top p{margin-top:15px}.person{min-height:430px}}
+
+
+.social-actions{display:grid;grid-template-columns:repeat(2,minmax(210px,1fr));gap:12px;margin-top:20px}.social-card{display:grid;grid-template-columns:58px 1fr 20px;align-items:center;gap:13px;padding:13px 15px;border:1px solid #ffffff14;border-radius:20px;background:linear-gradient(145deg,#151927,#0d1018);transition:.5s var(--ease);overflow:hidden;position:relative}.social-card:before{content:"";position:absolute;inset:-80%;background:radial-gradient(circle,#ffffff13,transparent 45%);transform:translateX(-40%);transition:.8s var(--ease)}.social-card:hover{transform:translateY(-6px);border-color:#ffffff30;box-shadow:0 22px 65px #0008}.social-card:hover:before{transform:translateX(35%)}.social-art{width:58px;height:58px;display:grid;place-items:center;border-radius:17px;background:#fff08;position:relative;z-index:1}.social-art svg{width:40px;height:40px}.discord-card .social-art{color:#a9b3ff;background:linear-gradient(145deg,#5865f2,#7a6df5)}.youtube-card .social-art{color:#fff;background:linear-gradient(145deg,#ff3347,#ff5c68)}.social-card span:not(.social-art){display:grid;gap:4px;position:relative;z-index:1}.social-card b{font-family:"Space Grotesk";font-size:16px}.social-card small{font-size:10px;color:var(--muted)}.social-card>i{font-style:normal;color:#7e8596;font-size:18px;position:relative;z-index:1}.donation-hero{padding:34px;display:grid;grid-template-columns:74px 1fr;gap:22px;align-items:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#141727,#0d1018)}.donation-glow{position:absolute;width:300px;height:300px;border-radius:50%;background:#6d59ff;filter:blur(90px);opacity:.18;right:-100px;top:-170px;animation:orb 8s var(--ease) infinite alternate}.donation-icon{width:74px;height:74px;border-radius:24px;display:grid;place-items:center;background:linear-gradient(135deg,#8c72ff,#5ce4f8);color:#080910;font-size:31px;font-weight:900;box-shadow:0 0 45px #7b6cff40;position:relative;z-index:1}.donation-hero>div:last-child{position:relative;z-index:1}.donation-hero h3{font-size:clamp(27px,4vw,43px);line-height:1.02;margin:8px 0}.donation-hero p,.donate-info-grid p{color:var(--muted);font-size:13px;line-height:1.7}.payment-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:15px}.payment-card{display:grid;grid-template-columns:52px 1fr 20px;align-items:center;gap:13px;padding:17px;border:1px solid #ffffff14;border-radius:20px;background:#10131d;transition:.5s var(--ease);position:relative;overflow:hidden}.payment-card:after{content:"";position:absolute;inset:auto -20% -65% -20%;height:100px;background:radial-gradient(circle,#8d78ff18,transparent 65%);transition:.5s}.payment-card:hover{transform:translateY(-6px) scale(1.01);border-color:#ffffff2b;background:#151a27;box-shadow:0 25px 70px #0009}.pay-icon{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(145deg,#202637,#141826);border:1px solid #ffffff12;font-weight:900;font-size:20px;color:#e9ecf7}.pay-icon.rev{background:linear-gradient(145deg,#8b74ff,#c26dff);color:#fff}.payment-card span:nth-child(2){display:grid;gap:4px}.payment-card b{font-family:"Space Grotesk";font-size:16px}.payment-card small{color:var(--muted);font-size:10px}.payment-card i{font-style:normal;color:#858b9b}.donate-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:15px}.donate-info-grid .panel{min-height:190px}.donate-info-grid h3{font-size:25px;margin:8px 0 7px}.mini-label{font-size:9px;font-weight:900;letter-spacing:1.8px;color:#8991a4}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;box-shadow:inset 0 1px #ffffff08,0 8px 28px #0004}.btn:active{transform:translateY(0) scale(.97)}.btn .ico{width:16px;height:16px;display:inline-grid;place-items:center;font-size:14px}.btn.secondary{background:#171b27!important}.btn.gold{background:linear-gradient(135deg,#ffd66b,#ffb94f)!important;color:#111!important;border-color:#ffd66b55!important}.social-card,.payment-card{cursor:pointer}
+.footer-social{display:flex!important;align-items:center;gap:8px!important;transform:none!important}.footer-social:hover{transform:translateX(3px)!important}.footer-social-icon{width:25px;height:25px;border-radius:8px;display:grid;place-items:center}.footer-social-icon svg{width:16px;height:16px}.discord-mini{background:#5865f2;color:#fff}.youtube-mini{background:#ff3347;color:#fff}.volume-row{display:flex;align-items:center;gap:12px;padding:17px 2px;border-bottom:1px solid var(--line);font-size:12px}.volume-row label{min-width:70px}.volume-row input{flex:1;accent-color:#8c74ff}.volume-value{width:38px;text-align:right;color:#aeb4c2;font-size:11px}
+@media(max-width:760px){.social-actions,.payment-grid,.donate-info-grid{grid-template-columns:1fr}.donation-hero{grid-template-columns:58px 1fr;padding:25px}.donation-icon{width:58px;height:58px;border-radius:19px}}
+/* V4 polish */
+.topbtn{display:inline-flex;align-items:center;gap:7px;background:#111522;color:#dfe3ef;border:1px solid #ffffff18;box-shadow:inset 0 1px #ffffff08}.topbtn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.topbtn:hover{background:#1a1e2c;color:#fff;border-color:#ffffff30}.topbtn.active{background:#1c2130}
+.btn{background:#111522!important;color:#f5f7ff!important;border-color:#ffffff18!important}.btn:hover{background:#191e2d!important}.btn.primary{background:linear-gradient(135deg,#9578ff,#5ce4f8)!important;color:#080910!important;border-color:transparent!important}
+.home-info-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:15px;margin-top:15px}.home-info{padding:24px;min-height:225px;display:flex;flex-direction:column;justify-content:center}.home-info h3{font-size:25px;margin:8px 0}.home-info p{color:var(--muted);font-size:12px;line-height:1.75}.mini-label{font-size:9px;letter-spacing:1.8px;color:var(--cyan);font-weight:900}.home-links{display:flex;gap:9px;flex-wrap:wrap;margin-top:17px}.gold{color:var(--gold)}
+.winner-spotlight{display:grid;grid-template-columns:45% 55%;min-height:480px;overflow:hidden;background:radial-gradient(circle at 20% 20%,#242a4b,#0d1019 60%)}.winner-render{position:relative;min-height:480px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}.winner-render:before{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,#8f78ff55,transparent 68%);filter:blur(8px);animation:championGlow 5s ease-in-out infinite alternate}.winner-render img{height:96%;max-width:100%;object-fit:contain;position:relative;z-index:1;filter:drop-shadow(0 30px 35px #000b);transition:.8s var(--ease)}.winner-spotlight:hover .winner-render img{transform:translateY(-8px) rotate(-1deg) scale(1.025)}@keyframes championGlow{to{transform:scale(1.15);opacity:.7}}.winner-details{padding:55px 48px;display:flex;flex-direction:column;justify-content:center}.winner-badge{display:inline-flex;width:max-content;padding:8px 11px;border:1px solid #ffd66b44;background:#ffd66b0d;color:var(--gold);border-radius:999px;font-size:9px;font-weight:900;letter-spacing:1px}.winner-details h3{font-size:clamp(45px,6vw,78px);line-height:.9;letter-spacing:-4px;margin:18px 0 7px}.winner-sub{color:var(--muted);font-size:14px}.winner-prize{margin:27px 0;padding:18px 20px;border-radius:20px;background:#ffffff06;border:1px solid #ffffff10;display:grid;grid-template-columns:1fr auto;align-items:end}.winner-prize span,.winner-prize small{color:#777e90;font-size:9px;letter-spacing:1.5px}.winner-prize strong{grid-row:span 2;font-family:"Space Grotesk";font-size:43px;color:var(--gold);line-height:1}.winner-meta{display:grid;gap:7px;color:#b8bdca;font-size:11px;margin-bottom:10px}.winner-meta span:first-child{color:#8ff3bd}.close{width:40px;height:40px;border:1px solid #ff4f5e66!important;background:#ff334d12!important;color:#ff6673!important;border-radius:13px!important;padding:0!important;display:grid;place-items:center;font-size:0;position:relative;transition:.35s var(--ease)}.close:before,.close:after{content:"";position:absolute;width:18px;height:2px;background:#ff5b68;border-radius:5px}.close:before{transform:rotate(45deg)}.close:after{transform:rotate(-45deg)}.close:hover{transform:rotate(90deg) scale(1.06);background:#ff334d22!important;box-shadow:0 0 30px #ff334d33}.modal{background:linear-gradient(145deg,#151925,#0d1018);border-color:#ffffff18}.modal-head{padding-bottom:14px;border-bottom:1px solid #ffffff0e}.setting{padding:17px 2px}.switch.on{background:linear-gradient(90deg,#8e72ff,#55ddf7)}
+.sound-on{color:var(--green)!important;border-color:#71f3aa44!important}.sound-off{color:#8c92a1!important}
+@media(max-width:900px){.home-info-grid{grid-template-columns:1fr}.winner-spotlight{grid-template-columns:1fr}.winner-render{min-height:390px}.winner-details{padding:32px 25px}.topbtn{width:42px;height:42px;justify-content:center;padding:0}.topbtn svg{width:19px;height:19px}}
+@media(max-width:580px){.winner-render{min-height:330px}.winner-details h3{font-size:50px}.winner-prize strong{font-size:34px}.winner-details{padding:25px 20px}.home-info{min-height:200px}}
+
+.header-actions{margin-left:auto;justify-content:flex-end}
+
+.header-actions > *{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+.header-actions button,
+.header-actions a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* HEADER ACTIONS — derecha + iconos perfectamente centrados */
+.actions{
+  margin-left:auto !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-end !important;
+  gap:5px;
+}
+.actions .topbtn{
+  position:relative !important;
+  width:42px !important;
+  height:42px !important;
+  min-width:42px !important;
+  min-height:42px !important;
+  padding:0 !important;
+  display:block !important;
+}
+.actions .topbtn svg{
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  width:19px !important;
+  height:19px !important;
+  margin:0 !important;
+  transform:translate(-50%,-50%) !important;
+}
+
+
+/* =========================================================
+   BOTONES — ESTILO PREMIUM CHUNK GAMES
+   Inspirado en "VER EVENTOS": degradado, sólido y redondeado.
+   ========================================================= */
+
+/* Botones principales y secundarios */
+.btn{
+  border:0 !important;
+  border-radius:15px !important;
+  padding:13px 18px !important;
+  background:linear-gradient(135deg,#9578ff,#5ce4f8) !important;
+  color:#080910 !important;
+  font-weight:800 !important;
+  box-shadow:0 8px 28px #0004 !important;
+  transition:.35s var(--ease) !important;
+}
+.btn:hover{
+  transform:translateY(-3px) scale(1.015) !important;
+  box-shadow:0 15px 40px #0007,0 0 28px #63e8ff22 !important;
+}
+.btn.primary{
+  background:linear-gradient(135deg,#9578ff,#5ce4f8) !important;
+}
+.btn:before{display:none !important}
+
+/* Iconos superiores: misma familia visual, pero compactos */
+.actions .topbtn{
+  border:0 !important;
+  border-radius:13px !important;
+  background:linear-gradient(135deg,#9578ff,#5ce4f8) !important;
+  color:#080910 !important;
+  box-shadow:0 7px 22px #0005 !important;
+  transition:.35s var(--ease) !important;
+}
+.actions .topbtn:hover{
+  transform:translateY(-3px) scale(1.04) !important;
+  box-shadow:0 14px 32px #0007,0 0 24px #63e8ff25 !important;
+}
+.actions .topbtn svg{
+  color:#080910 !important;
+  stroke:currentColor !important;
+}
+
+/* Pestañas del menú: mantienen su función de navegación,
+   pero adoptan el mismo lenguaje visual */
+.tabs button{
+  border:0 !important;
+  border-radius:13px !important;
+  transition:.35s var(--ease) !important;
+}
+.tabs button:hover,
+.tabs button.active{
+  color:#080910 !important;
+  background:linear-gradient(135deg,#9578ff,#5ce4f8) !important;
+  transform:translateY(-2px) !important;
+}
+.tabs button:after{
+  display:none !important;
+}
+
+/* Botón de cerrar */
+.close{
+  border:0 !important;
+  border-radius:13px !important;
+  background:linear-gradient(135deg,#9578ff,#5ce4f8) !important;
+  color:#080910 !important;
+  font-weight:800 !important;
+  transition:.35s var(--ease) !important;
+}
+.close:hover{
+  transform:translateY(-2px) !important;
+  box-shadow:0 12px 30px #0006 !important;
+}
+
+/* No tocar los interruptores: siguen siendo interruptores */
+.switch{
+  border:0 !important;
+}
+
+
+/* ===== CUENTA GOOGLE / COMUNIDAD ===== */
+.account-panel{max-width:520px}.account-profile{display:flex;align-items:center;gap:14px;padding:14px;border:1px solid var(--line);border-radius:18px;background:#0b0e16;margin-bottom:14px}.account-avatar{width:52px;height:52px;border-radius:50%;object-fit:cover;border:1px solid rgba(124,243,255,.35);background:#171b27}.account-name{font-weight:800;font-size:16px}.account-email{font-size:11px;color:#7f8798;margin-top:4px;word-break:break-all}.google-btn{width:100%;justify-content:center;margin-top:10px}.google-icon{width:18px;height:18px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;color:#4285f4;font-weight:900;font-size:12px}.account-note{font-size:11px;color:#72798a;line-height:1.55;margin-top:12px}.comment-user{display:flex;align-items:center;gap:9px;margin-bottom:7px}.comment-avatar{width:28px;height:28px;border-radius:50%;object-fit:cover;background:#171b27}.comment-name{font-size:12px;font-weight:800}.comment-email{font-size:9px;color:#687080;margin-left:auto}.suggestion p{white-space:pre-wrap;word-break:break-word}.auth-status{display:inline-flex;align-items:center;gap:7px;font-size:10px;color:#6e7789}.auth-dot{width:7px;height:7px;border-radius:50%;background:#6d7480}.auth-dot.ok{background:#6ee7a0;box-shadow:0 0 10px rgba(110,231,160,.55)}
+
+/* ===== COMUNIDAD GLOBAL + PERFILES MINECRAFT ===== */
+.account-skin{width:96px;height:128px;object-fit:contain;border-radius:16px;background:#0b0e16;border:1px solid #ffffff12}
+.comment-actions{display:flex;gap:7px;margin-top:10px}
+.react-btn{border:1px solid #ffffff12;background:#111521;color:#9da5b7;border-radius:10px;padding:7px 10px;cursor:pointer;font:700 11px inherit;transition:.2s;display:inline-flex;align-items:center;gap:5px}
+.react-btn:hover{transform:translateY(-1px);border-color:#7cf3ff55;color:#fff}
+.react-btn.active-like{color:#6ee7a0;border-color:#6ee7a044;background:#6ee7a00d}
+.react-btn.active-dislike{color:#ff8b98;border-color:#ff8b9844;background:#ff8b980d}
+.comment-avatar{object-fit:cover}
+</style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2216%22 fill=%22%230b0e16%22/%3E%3Cpath d=%22M8 23 32 10l24 13-24 13Z%22 fill=%22%237cf3ff%22/%3E%3Cpath d=%22M8 23v27l24 13V36Z%22 fill=%22%234b5568%22/%3E%3Cpath d=%22M56 23v27L32 63V36Z%22 fill=%22%23303849%22/%3E%3Cpath d=%22M37 40 48 34v15l-11 6Z%22 fill=%22%238b76ff%22/%3E%3C/svg%3E">
+<!-- CHUNK GAMES · Google login + comentarios (Firebase) -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+
+<style id="mobile-tabs-fix">
+@media (max-width:900px){
+  header{top:8px;width:calc(100% - 16px);}
+  .nav{height:auto;min-height:64px;flex-wrap:wrap;align-items:center;padding:7px;}
+  .brand{flex:1 1 auto;min-width:0;}
+  .actions{flex:0 0 auto;}
+  .tabs{
+    display:flex !important;
+    order:3;
+    flex:0 0 100% !important;
+    width:100%;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:4px;
+    padding:5px 2px 2px;
+    overflow:visible;
+  }
+  .tabs button{
+    flex:0 0 auto;
+    white-space:nowrap;
+    padding:9px 11px !important;
+    min-height:38px;
+    font-size:11px;
+    touch-action:manipulation;
+  }
+  .page{padding-top:150px !important;}
+}
+@media (max-width:580px){
+  .tabs{justify-content:center;}
+  .tabs button{padding:8px 9px !important;min-height:36px;font-size:10px;}
+  .page{padding-top:175px !important;}
+}
+</style>
+
+</head>
+<body>
+<div class="bg"><div class="grid"></div><div class="orb a"></div><div class="orb b"></div><div class="orb c"></div></div><div id="particles"></div>
+
+<header><nav class="nav">
+<a class="brand" href="#" onclick="showPage('inicio');return false">
+<div class="brand-logo">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Chunk Games"><defs><linearGradient id="chunkG" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7cf3ff"/><stop offset=".48" stop-color="#8b76ff"/><stop offset="1" stop-color="#ff63c9"/></linearGradient><linearGradient id="grassG" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#7df2a5"/><stop offset="1" stop-color="#36a66b"/></linearGradient></defs><rect width="100" height="100" rx="22" fill="#090b12"/><path d="M18 34 50 18l32 16-32 17Z" fill="url(#grassG)"/><path d="M18 34v36l32 17V51Z" fill="#4b5568"/><path d="M82 34v36L50 87V51Z" fill="#303849"/><path d="m18 34 32 17 32-17" fill="none" stroke="#d9ffff" stroke-opacity=".7" stroke-width="2"/><path d="M34 29 50 21l16 8-16 8Z" fill="#a5ffb9" opacity=".8"/><path d="M27 46v17l8 4V50Z" fill="#687488"/><path d="M57 57 72 49v19L57 76Z" fill="url(#chunkG)" opacity=".85"/><circle cx="73" cy="27" r="3" fill="#fff" opacity=".9"/><path d="M68 83h13" stroke="#63e8ff" stroke-width="3" stroke-linecap="round" opacity=".8"/></svg>
+</div><div><b>CHUNK GAMES</b><small>MINECRAFT EVENTS</small></div></a>
+<div class="tabs">
+<button data-page="inicio" class="active">Inicio</button><button data-page="eventos">Eventos</button><button data-page="ganadores">Ganadores</button><button data-page="noticias">Noticias</button><button data-page="sugerencias">Sugerencias</button><button data-page="equipo">Equipo</button><button data-page="donaciones">Donaciones</button>
+<button data-page="apk">APK Android</button>
+</div>
+<div class="actions"><button class="topbtn" id="soundBtn" aria-label="Sonido"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h4l5 4V6l-5 4H4Z"/><path d="M16 9.5a4 4 0 0 1 0 5M18.5 7a7.5 7.5 0 0 1 0 10"/></svg></button><button class="topbtn" id="settingsBtn" aria-label="Ajustes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8.3a3.7 3.7 0 1 0 0 7.4 3.7 3.7 0 0 0 0-7.4Z"/><path d="m19 13.2 1.1.9-1.8 3.1-1.4-.5a7.6 7.6 0 0 1-1.8 1l-.2 1.5h-3.6l-.2-1.5a7.6 7.6 0 0 1-1.8-1l-1.4.5-1.8-3.1 1.1-.9a7.4 7.4 0 0 1 0-2.4l-1.1-.9 1.8-3.1 1.4.5a7.6 7.6 0 0 1 1.8-1l.2-1.5h3.6l.2 1.5a7.6 7.6 0 0 1 1.8 1l1.4-.5 1.8 3.1-1.1.9a7.4 7.4 0 0 1 0 2.4Z"/></svg></button><button class="topbtn" id="profileBtn" aria-label="Cuenta"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 19.2c.8-3 3-4.7 6.5-4.7s5.7 1.7 6.5 4.7"/></svg></button></div>
+</nav></header>
+
+<main>
+<section class="page active" id="page-inicio">
+<div class="hero"><div>
+<div class="eyebrow"><span class="live"></span> CHUNK GAMES · ONLINE</div>
+<h1>Donde Minecraft<br><span class="gradient">se convierte</span> en evento.</h1>
+<p>Chunk Games crea experiencias competitivas, mapas y eventos de Minecraft con una identidad propia. Aquí encontrarás nuestra historia, próximos proyectos, ganadores, noticias y comunidad.</p>
+<div class="cta"><button class="btn primary" onclick="showPage('eventos')"><span class="ico">◈</span>VER EVENTOS</button><button class="btn" onclick="showPage('equipo')"><span class="ico">⌘</span>CONOCER EL EQUIPO</button></div>
+<div class="stats">
+<div class="stat"><strong>01</strong><span>EVENTO COMPLETADO</span></div><div class="stat"><strong>4.5M</strong><span>PRÓXIMO PREMIO ANUNCIADO</span></div><div class="stat"><strong>2026</strong><span>NUEVA EDICIÓN</span></div><div class="stat"><strong>3</strong><span>MIEMBROS DEL EQUIPO</span></div>
+</div></div></div>
+<div class="home-info-grid">
+  <article class="panel home-info"><div class="mini-label">SuperCraft · SERVIDOR DESTACADO</div><h3>Donde comenzó la historia.</h3><p>SQUID GAMES 1 se celebró en SuperCraft. Consulta la web oficial para conocer el servidor, modalidades y novedades.</p><div class="home-links"><a class="btn primary" href="https://supercraft.es/" target="_blank" rel="noopener">supercraft.es ↗</a><button class="btn" onclick="showPage('ganadores')">VER 800K COINS</button></div></article>
+  <article class="panel home-info"><div class="mini-label">PRÓXIMO GRAN EVENTO</div><h3>SQUID GAMES 2</h3><p><b>Navidad 2026.</b> Fecha exacta: <b>MISTERIO</b>. Premio anunciado: <b class="gold">4.5M COINS</b>. Todavía no se ha realizado.</p><button class="btn" onclick="showPage('eventos')">DESCUBRIR EL EVENTO</button></article>
+  <article class="panel home-info"><div class="mini-label">CHUNK GAMES</div><h3>Una comunidad, no solo eventos.</h3><p>Mapas, competiciones, noticias, equipo y nuevas ideas reunidas en una experiencia con identidad propia.</p><button class="btn" onclick="showPage('noticias')">VER NOTICIAS</button></article>
+</div>
+<div class="footer"><span>CHUNK GAMES · 2026</span><span>Proyecto de fans independiente de Mojang/Microsoft</span></div>
+</section>
+
+<section class="page" id="page-eventos">
+<div class="section-top"><div><div class="kicker">01 / EVENTOS</div><h2>Experiencias<br>que se recuerdan.</h2></div><p>Nosotros no creamos eventos, creamos recuerdos. Aquí encontrarás la historia, las imágenes, los premios y los detalles de cada experiencia.</p></div>
+<div class="panel event-feature">
+<div class="event-image"><img src="https://static.planetminecraft.com/files/image/minecraft/project/2025/651/18485625_xl.webp" alt="Puente de cristal de SQUID GAMES en Minecraft" loading="lazy"></div>
+<div class="event-info"><span class="tag">REALIZADO · 2025</span><h3>SQUID GAMES 1</h3><p>Creado por <b>matt405</b> y <b>uncurling</b>. El primer gran evento de Chunk Games se realizó en SuperCraft y terminó con un ganador.</p><div class="big-prize">800K COINS</div><p>Ganador: <b>Javemi231x</b></p><div class="cta" style="justify-content:flex-start"><a class="btn" href="https://supercraft.es/" target="_blank">SuperCraft</a><button class="btn" onclick="showPage('ganadores')"><span class="ico">★</span>VER GANADOR</button></div></div>
+</div>
+<div class="gallery">
+<figure><img src="https://static.planetminecraft.com/files/image/minecraft/project/2022/444/15270904_l.jpg" loading="lazy"><figcaption>Mapa SQUID GAMES · Minecraft</figcaption></figure>
+<figure><img src="https://static.planetminecraft.com/files/image/minecraft/project/2025/651/18485625_xl.webp" loading="lazy"><figcaption>Glass Bridge</figcaption></figure>
+<figure><img src="https://i0.wp.com/i.imgur.com/ft9yHUl.png?ssl=1" loading="lazy"><figcaption>Arena de Minecraft</figcaption></figure>
+<figure><img src="https://static.planetminecraft.com/files/image/minecraft/project/2022/444/15270904_l.jpg" loading="lazy"><figcaption>Escenarios inspirados en SQUID GAMES</figcaption></figure>
+</div>
+<div style="height:15px"></div>
+<div class="panel event-feature" style="min-height:440px">
+<div class="event-image"><img src="https://static.planetminecraft.com/files/image/minecraft/project/2022/444/15270904_l.jpg" alt="Mapa de SQUID GAMES en Minecraft" loading="lazy"></div>
+<div class="event-info"><span class="tag soon">PRÓXIMAMENTE · 2026</span><h3>SQUID GAMES 2</h3><p>La segunda edición está anunciada para <b>Navidad de 2026</b>. La fecha exacta todavía es un misterio. El evento <b>todavía no se ha realizado</b>.</p><div class="big-prize">4.5M COINS</div><p>Más detalles se revelarán cuando Chunk Games los anuncie.</p></div>
+</div>
+<div class="footer"><span>EVENTOS</span><span>Las imágenes de galería son referencias visuales de mapas de Minecraft; no representan necesariamente el mapa de Chunk Games.</span></div>
+</section>
+
+<section class="page" id="page-ganadores">
+<div class="section-top"><div><div class="kicker">02 / PALMARÉS</div><h2>Ganadores<br>y premios.</h2></div><p>Los resultados confirmados de los eventos que ya han terminado.</p></div>
+<div class="winner-spotlight panel">
+  <div class="winner-render"><img src="https://skinrender.dev/render/Javemi231x/body?size=800&pose=cheer&shadow=true" alt="Skin actual de Minecraft de Javemi231x" loading="lazy"></div>
+  <div class="winner-details">
+    <div class="winner-badge">🥇 CAMPEÓN CONFIRMADO · SQUID GAMES 1</div>
+    <h3>Javemi231x</h3>
+    <p class="winner-sub">La primera corona de Chunk Games.</p>
+    <div class="winner-prize"><span>PREMIO</span><strong>800K</strong><small>COINS · SuperCraft</small></div>
+    <div class="winner-meta"><span>Ganador de SQUID GAMES 1 · 2025</span><span>Premio obtenido: 800K coins</span><span>Primer campeón de Chunk Games</span></div>
+    <div class="cta" style="justify-content:flex-start"><a class="btn" href="https://supercraft.es/" target="_blank" rel="noopener">SuperCraft ↗</a><button class="btn" onclick="showPage('eventos')"><span class="ico">◈</span>VER EVENTOS</button></div>
+  </div>
+</div>
+<div class="panel panel-pad" style="margin-top:15px"><div class="kicker">PRÓXIMO PREMIO</div><h3 style="font-size:32px">SQUID GAMES 2 · 4.5M coins</h3><p style="color:var(--muted);margin-top:7px">Navidad 2026 · fecha exacta desconocida · evento todavía no realizado.</p></div>
+</section>
+
+<section class="page" id="page-noticias">
+<div class="section-top"><div><div class="kicker">03 / NOTICIAS</div><h2>Lo que está<br>pasando.</h2></div><p>Noticias de Chunk Games y temas de Minecraft que decidamos destacar. Las publicaciones externas llevan a su fuente.</p></div>
+<div class="news-grid">
+<article class="panel news-card"><div class="news-image"><img src="https://static.planetminecraft.com/files/image/minecraft/project/2025/651/18485625_xl.webp" loading="lazy"></div><div class="news-copy"><small>CHUNK GAMES · 2026</small><h3>SQUID GAMES 2 ya tiene ventana</h3><p>Navidad de 2026. La fecha exacta sigue siendo un misterio y el evento aún no se ha celebrado.</p></div></article>
+<article class="panel news-card"><div class="news-image"><img src="https://static.planetminecraft.com/files/image/minecraft/project/2022/444/15270904_l.jpg" loading="lazy"></div><div class="news-copy"><small>MINECRAFT · REFERENCIA VISUAL</small><h3>Mapas y recreaciones de SQUID GAMES</h3><p>La comunidad de Minecraft ha creado numerosas recreaciones y mapas inspirados en la serie.</p></div></article>
+<article class="panel news-card"><div class="news-copy"><small>SuperCraft · FUENTE</small><h3>SuperCraft sigue activo</h3><p>Su web oficial indica soporte Java y Bedrock, 11 modos y la IP mc.supercraft.es. La información de su servidor se puede consultar directamente.</p><a class="btn" style="display:inline-block;margin-top:14px" href="https://supercraft.es/" target="_blank"><span class="ico">↗</span>ABRIR WEB OFICIAL</a></div></article>
+<article class="panel news-card"><div class="news-copy"><small>MINECRAFT · COMUNIDAD</small><h3>Galerías que inspiran</h3><p>Esta página usa imágenes externas como referencias visuales y no las presenta como material propio de Chunk Games.</p><a class="btn" style="display:inline-block;margin-top:14px" href="https://www.planetminecraft.com/" target="_blank">PLANET MINECRAFT</a></div></article>
+</div>
+</section>
+
+<section class="page" id="page-sugerencias">
+<div class="section-top"><div><div class="kicker">04 / COMUNIDAD</div><h2>Propón.<br>Construimos.</h2></div><p>Las sugerencias son de la comunidad: una vez conectada la base de datos online, todos los visitantes verán los mismos perfiles, comentarios y votos.</p></div>
+<div class="community"><div class="panel panel-pad suggest-form"><h3 style="font-size:25px;margin-bottom:14px">Nueva sugerencia</h3><textarea id="suggestion" maxlength="500" placeholder="Evento, mapa, sección, función..."></textarea><div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px"><small style="color:#686e7c">Máximo 1 al día</small><button class="btn primary" onclick="saveSuggestion()"><span class="ico">✦</span>PUBLICAR</button></div></div><div><div id="suggestionsList" class="suggestions"></div></div></div>
+</section>
+
+<section class="page" id="page-equipo">
+<div class="section-top"><div><div class="kicker">05 / EQUIPO</div><h2>Las personas<br>de Chunk Games.</h2></div><p>Conoce a las personas que forman parte de Chunk Games y dan vida a sus eventos y mapas.</p></div>
+<div class="skin-grid">
+<article class="panel person"><div class="skin"><img src="https://skinrender.dev/render/matt405/body?size=700&pose=flex&shadow=true" alt="Skin actual de Minecraft de matt405" loading="lazy"></div><div class="copy"><h3>matt405</h3><p>Director y creador</p><div class="verified">EQUIPO CHUNK GAMES</div></div></article>
+<article class="panel person"><div class="skin"><img src="https://skinrender.dev/render/amedelito/body?size=700&pose=point&shadow=true" alt="Skin actual de Minecraft de amedelito" loading="lazy"></div><div class="copy"><h3>amedelito</h3><p>Construcción de mapas · Redes sociales</p><div class="verified">EQUIPO CHUNK GAMES</div></div></article>
+<article class="panel person"><div class="skin"><img src="https://skinrender.dev/render/uncurlingtub2/body?size=700&pose=cheer&shadow=true" alt="Skin actual de Minecraft de uncurlingtub2" loading="lazy"></div><div class="copy"><h3>uncurlingtub2</h3><p>Construcción de mapas · Artista</p><div class="verified">EQUIPO CHUNK GAMES</div></div></article>
+</div>
+<div class="panel panel-pad" style="margin-top:15px"><div class="kicker">DATOS DEL EQUIPO</div><p style="color:var(--muted);font-size:13px;line-height:1.8">Un equipo centrado en crear eventos, mapas y experiencias de Minecraft.</p><div class="social-actions" aria-label="Redes sociales">
+<a class="social-card discord-card" href="https://discord.gg/rvG7wBmPR" target="_blank" rel="noopener" aria-label="Abrir Discord de Chunk Games"><span class="social-art"><svg viewBox="0 0 96 72" aria-hidden="true"><path fill="currentColor" d="M81 8.5A77 77 0 0 0 61.8 2.6l-2.3 4.7a70 70 0 0 0-22.9 0l-2.3-4.7A77 77 0 0 0 15 8.5C2.8 27-1 45.1 1.1 62.9A77 77 0 0 0 24.7 75l5.7-7.8c-3.1-1.2-6-2.8-8.7-4.7l2.1-1.6c16.7 7.8 35.1 7.8 51.6 0l2.1 1.6c-2.7 1.9-5.6 3.5-8.7 4.7l5.7 7.8a77 77 0 0 0 23.6-12.1C100 45.1 96.2 27 81 8.5ZM32.2 52.7c-5 0-9.1-4.6-9.1-10.2s4-10.2 9.1-10.2c5.1 0 9.2 4.6 9.1 10.2 0 5.6-4 10.2-9.1 10.2Zm31.6 0c-5 0-9.1-4.6-9.1-10.2s4-10.2 9.1-10.2c5.1 0 9.2 4.6 9.1 10.2 0 5.6-4 10.2-9.1 10.2Z"/></svg></span><span><b>Discord</b><small>Únete a la comunidad</small></span><i>↗</i></a>
+<a class="social-card youtube-card" href="https://www.youtube.com/@AmedeMC" target="_blank" rel="noopener" aria-label="Abrir YouTube de AmedeMC"><span class="social-art"><svg viewBox="0 0 96 68" aria-hidden="true"><path fill="currentColor" d="M92.1 10.6A12.2 12.2 0 0 0 83.5 2C75.9 0 48 0 48 0S20.1 0 12.5 2a12.2 12.2 0 0 0-8.6 8.6C1.9 18.2 1.9 34 1.9 34s0 15.8 2 23.4A12.2 12.2 0 0 0 12.5 66c7.6 2 35.5 2 35.5 2s27.9 0 35.5-2a12.2 12.2 0 0 0 8.6-8.6c2-7.6 2-23.4 2-23.4s0-15.8-2-23.4ZM38.4 48.2V19.8L63.6 34 38.4 48.2Z"/></svg></span><span><b>YouTube</b><small>Vídeos de AmedeMC</small></span><i>↗</i></a>
+</div></div>
+</section>
+
+<section class="page" id="page-donaciones">
+<div class="section-top">
+  <div><div class="kicker">06 / APOYO</div><h2>Donaciones<br>no disponibles.</h2></div>
+  <p>De momento esta función no está disponible. Cuando esté preparada, podrás apoyar a Chunk Games desde aquí.</p>
+</div>
+<div class="panel donation-hero" style="grid-template-columns:74px 1fr;">
+  <div class="donation-icon">✦</div>
+  <div>
+    <span class="mini-label">DONACIONES</span>
+    <h3>De momento no está disponible.</h3>
+    <p>Estamos preparando esta sección. No hay métodos de pago activos actualmente.</p>
+  </div>
+</div>
+</section>
+
+<section class="page" id="page-apk">
+<style>
+.apk-page-wrap{max-width:1050px;margin:0 auto;padding:10px 0 70px}
+.apk-hero{position:relative;overflow:hidden;border:1px solid rgba(139,118,255,.28);border-radius:24px;padding:46px 42px;background:linear-gradient(135deg,rgba(139,118,255,.12),rgba(101,217,137,.07) 55%,rgba(10,14,22,.8));box-shadow:0 24px 70px rgba(0,0,0,.18)}
+.apk-hero:before{content:"";position:absolute;width:280px;height:280px;right:-100px;top:-130px;border-radius:50%;background:rgba(139,118,255,.16);filter:blur(2px)}
+.apk-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;background:rgba(101,217,137,.12);border:1px solid rgba(101,217,137,.28);font-size:12px;font-weight:800;letter-spacing:.08em;color:#65d989}
+.apk-hero h2{position:relative;margin:18px 0 12px;font-size:clamp(38px,5vw,64px);line-height:.98}
+.apk-hero>p{position:relative;max-width:650px;margin:0;color:rgba(255,255,255,.68);font-size:16px;line-height:1.65}
+.apk-card{position:relative;display:flex;align-items:center;gap:24px;margin-top:28px;padding:25px;border-radius:20px;background:rgba(9,12,19,.78);border:1px solid rgba(255,255,255,.1)}
+.apk-app-icon{width:76px;height:76px;flex:0 0 76px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(145deg,#151b29,#0b0e16);border:1px solid rgba(255,255,255,.12);box-shadow:inset 0 0 0 1px rgba(139,118,255,.08)}
+.apk-app-icon svg{width:48px;height:48px}
+.apk-info{flex:1;min-width:0}
+.apk-info h3{margin:0 0 6px;font-size:22px}
+.apk-info p{margin:0;color:rgba(255,255,255,.58);line-height:1.5}
+.apk-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.apk-meta span{font-size:11px;font-weight:700;letter-spacing:.05em;padding:5px 9px;border-radius:7px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.62)}
+.apk-download-btn{display:inline-flex!important;align-items:center;justify-content:center;gap:9px;min-width:205px;text-decoration:none!important;cursor:pointer}
+.apk-help{margin:18px 4px 0;color:rgba(255,255,255,.42);font-size:12px;line-height:1.5}
+.apk-help b{color:rgba(255,255,255,.62)}
+@media(max-width:700px){.apk-hero{padding:30px 22px}.apk-card{align-items:flex-start;flex-direction:column}.apk-download-btn{width:100%;min-width:0}.apk-app-icon{width:64px;height:64px;flex-basis:64px}}
+</style>
+<div class="apk-page-wrap">
+  <div class="apk-hero">
+    <div class="apk-badge">ANDROID · APK</div>
+    <h2>Chunk Games<br>en tu móvil.</h2>
+    <p>Descarga la aplicación oficial de Chunk Games para Android. Pulsa el botón y el archivo comenzará a descargarse.</p>
+    <div class="apk-card">
+      <div class="apk-app-icon" aria-hidden="true">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100" height="100" rx="22" fill="#0b0e16"/>
+          <path d="M18 34 50 18l32 16-32 17Z" fill="#65d989"/>
+          <path d="M18 34v36l32 17V51Z" fill="#4b5568"/>
+          <path d="M82 34v36L50 87V51Z" fill="#303849"/>
+          <path d="m18 34 32 17 32-17" fill="none" stroke="#d9ffff" stroke-opacity=".7" stroke-width="2"/>
+          <path d="M57 57 72 49v19L57 76Z" fill="#8b76ff"/>
+        </svg>
+      </div>
+      <div class="apk-info">
+        <h3>Chunk Games — Android</h3>
+        <p>Archivo APK listo para descargar en dispositivos Android.</p>
+        <div class="apk-meta"><span>APK</span><span>ANDROID</span><span>CHUNK GAMES</span></div>
+      </div>
+      <a class="btn primary apk-download-btn" href="https://amedelito.github.io/ChunkGames/ChunkGamesEvent.apk" download="ChunkGamesEvent.apk">
+        <span class="ico">↓</span> DESCARGAR APK
+      </a>
+    </div>
+    <div class="apk-help"><b>Descarga directa:</b> Pulsa el botón para descargar la APK desde GitHub Pages.</div>
+  </div>
+</div>
+<script>
+function downloadAPK(event){
+  // Kept as a simple direct navigation for maximum GitHub Pages compatibility.
+}
+</script>
+</section>
+
+</main>
+
+<footer class="site-footer"><div class="footer-main"><div class="footer-brand"><div class="footer-logo"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="22" fill="#0b0e16"/><path d="M18 34 50 18l32 16-32 17Z" fill="#65d989"/><path d="M18 34v36l32 17V51Z" fill="#4b5568"/><path d="M82 34v36L50 87V51Z" fill="#303849"/><path d="m18 34 32 17 32-17" fill="none" stroke="#d9ffff" stroke-opacity=".7" stroke-width="2"/><path d="M57 57 72 49v19L57 76Z" fill="#8b76ff"/></svg></div><div><b>CHUNK GAMES</b><p>Eventos, mapas y experiencias de Minecraft.</p></div></div><div class="footer-links"><div><strong>EXPLORAR</strong><a href="#" onclick="showPage('inicio');return false">Inicio</a><a href="#" onclick="showPage('eventos');return false">Eventos</a><a href="#" onclick="showPage('ganadores');return false">Ganadores</a><a href="#" onclick="showPage('noticias');return false">Noticias</a></div><div><strong>COMUNIDAD</strong><a href="#" onclick="showPage('sugerencias');return false">Sugerencias</a><a href="#" onclick="showPage('equipo');return false">Equipo</a><a href="#" onclick="showPage('donaciones');return false">Donaciones</a><a href="https://supercraft.es/" target="_blank" rel="noopener">SuperCraft ↗</a></div><div><strong>SOCIAL</strong><a class="footer-social" href="https://discord.gg/rvG7wBmPR" target="_blank" rel="noopener"><span class="footer-social-icon discord-mini"><svg viewBox="0 0 96 72" aria-hidden="true"><path fill="currentColor" d="M81 8.5A77 77 0 0 0 61.8 2.6l-2.3 4.7a70 70 0 0 0-22.9 0l-2.3-4.7A77 77 0 0 0 15 8.5C2.8 27-1 45.1 1.1 62.9A77 77 0 0 0 24.7 75l5.7-7.8c-3.1-1.2-6-2.8-8.7-4.7l2.1-1.6c16.7 7.8 35.1 7.8 51.6 0l2.1 1.6c-2.7 1.9-5.6 3.5-8.7 4.7l5.7 7.8a77 77 0 0 0 23.6-12.1C100 45.1 96.2 27 81 8.5ZM32.2 52.7c-5 0-9.1-4.6-9.1-10.2s4-10.2 9.1-10.2c5.1 0 9.2 4.6 9.1 10.2 0 5.6-4 10.2-9.1 10.2Zm31.6 0c-5 0-9.1-4.6-9.1-10.2s4-10.2 9.1-10.2c5.1 0 9.2 4.6 9.1 10.2 0 5.6-4 10.2-9.1 10.2Z"/></svg></span>Discord</a><a class="footer-social" href="https://www.youtube.com/@AmedeMC" target="_blank" rel="noopener"><span class="footer-social-icon youtube-mini"><svg viewBox="0 0 96 68" aria-hidden="true"><path fill="currentColor" d="M92.1 10.6A12.2 12.2 0 0 0 83.5 2C75.9 0 48 0 48 0S20.1 0 12.5 2a12.2 12.2 0 0 0-8.6 8.6C1.9 18.2 1.9 34 1.9 34s0 15.8 2 23.4A12.2 12.2 0 0 0 12.5 66c7.6 2 35.5 2 35.5 2s27.9 0 35.5-2a12.2 12.2 0 0 0 8.6-8.6c2-7.6 2-23.4 2-23.4s0-15.8-2-23.4ZM38.4 48.2V19.8L63.6 34 38.4 48.2Z"/></svg></span>YouTube</a></div></div></div><div class="footer-bottom"><span>© 2026 CHUNK GAMES</span><span>Proyecto independiente de fans · No afiliado con Mojang o Microsoft</span><span>Minecraft es una marca de Mojang Studios.</span></div></footer>
+
+<div class="modal-bg" id="modal"><div class="modal"><div class="modal-head"><h3>Ajustes</h3><button class="close" type="button" aria-label="Cerrar ajustes" title="Cerrar" onclick="closeModal()"></button></div>
+<div class="setting"><span>Animaciones</span><div class="switch on" data-key="animations"><i></i></div></div>
+<div class="setting"><span>Partículas</span><div class="switch on" data-key="particles"><i></i></div></div>
+<div class="setting"><span>Sonidos</span><div class="switch on" data-key="sound"><i></i></div></div>
+<div class="setting"><span>Música ambiental</span><div class="switch on" data-key="music"><i></i></div></div><div class="volume-row"><label for="volume">Volumen</label><input id="volume" type="range" min="0" max="100" value="82"><span class="volume-value" id="volumeValue">82%</span></div>
+</div></div>
+<div class="modal-bg" id="accountModal"><div class="modal account-panel"><div class="modal-head"><h3>Tu cuenta</h3><button class="close" type="button" aria-label="Cerrar cuenta" title="Cerrar" onclick="closeAccountModal()"></button></div><div id="accountContent"></div></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const pages=[...document.querySelectorAll('.page')],tabs=[...document.querySelectorAll('[data-page]')];
+function showPage(id){pages.forEach(p=>p.classList.toggle('active',p.id==='page-'+id));tabs.forEach(t=>t.classList.toggle('active',t.dataset.page===id));window.scrollTo({top:0,behavior:'smooth'});history.replaceState(null,'','#'+id);playClick(.06)}
+tabs.forEach(t=>t.onclick=()=>showPage(t.dataset.page));
+if(location.hash && document.getElementById('page-'+location.hash.slice(1)))showPage(location.hash.slice(1));
+const particles=document.getElementById('particles');
+for(let i=0;i<65;i++){let p=document.createElement('i');p.className='particle';p.style.left=Math.random()*100+'%';p.style.animationDuration=10+Math.random()*18+'s';p.style.animationDelay=-Math.random()*22+'s';particles.appendChild(p)}
+let toastTimer;function toast(t){let x=document.getElementById('toast');x.textContent=t;x.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>x.classList.remove('show'),2600)}
+const modal=document.getElementById('modal');const settingsBtn=document.getElementById('settingsBtn');function openSettings(){if(!modal)return;modal.classList.add('open');document.body.classList.add('modal-open');if(typeof playClick==='function')playClick(.08)}function closeModal(){if(!modal)return;modal.classList.remove('open');document.body.classList.remove('modal-open');if(typeof playClick==='function')playClick(.05)}if(settingsBtn)settingsBtn.addEventListener('click',openSettings);if(modal)modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal?.classList.contains('open'))closeModal()});
+let settingsState=JSON.parse(localStorage.getItem('cg_settings_v5')||'{"animations":true,"particles":true,"sound":true,"music":true,"volume":82}'); if(typeof settingsState.volume!=='number')settingsState.volume=82;
+function applySettings(){document.querySelectorAll('.switch').forEach(s=>s.classList.toggle('on',!!settingsState[s.dataset.key]));particles.style.display=settingsState.particles?'block':'none';document.documentElement.style.setProperty('--ease',settingsState.animations?'cubic-bezier(.16,1,.3,1)':'linear');let b=document.getElementById('soundBtn');b.classList.toggle('sound-on',!!settingsState.sound);b.classList.toggle('sound-off',!settingsState.sound);document.body.classList.toggle('no-motion',!settingsState.animations)}
+let audioCtx=null,master=null,musicTimer=null;
+function ensureAudio(){try{const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return false;if(!audioCtx){audioCtx=new AC();master=audioCtx.createGain();master.gain.value=Math.max(.001,settingsState.volume/100*.16);master.connect(audioCtx.destination)}else master.gain.value=Math.max(.001,settingsState.volume/100*.16);if(audioCtx.state==='suspended')audioCtx.resume().catch(()=>{});return true}catch(e){return false}}
+function playClick(vol=.07){try{if(!settingsState.sound||!ensureAudio())return;let o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type='sine';o.frequency.setValueAtTime(520,audioCtx.currentTime);o.frequency.exponentialRampToValueAtTime(760,audioCtx.currentTime+.07);g.gain.setValueAtTime(.001,audioCtx.currentTime);g.gain.linearRampToValueAtTime(vol,audioCtx.currentTime+.012);g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+.09);o.connect(g);g.connect(master);o.start();o.stop(audioCtx.currentTime+.1)}catch(e){}}
+function startMusic(){try{if(musicTimer||!settingsState.music||!ensureAudio())return;const notes=[196,246.94,293.66,246.94,220,261.63,329.63,261.63];let i=0;musicTimer=setInterval(()=>{try{if(!settingsState.music||!audioCtx)return;let o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type='sine';o.frequency.value=notes[i++%notes.length];g.gain.setValueAtTime(.0001,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.018,audioCtx.currentTime+.5);g.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+3.5);o.connect(g);g.connect(master);o.start();o.stop(audioCtx.currentTime+3.6)}catch(e){}},2600)}catch(e){}}
+function stopMusic(){if(musicTimer){clearInterval(musicTimer);musicTimer=null}}
+const soundBtn=document.getElementById('soundBtn'); if(soundBtn)soundBtn.onclick=()=>{settingsState.sound=!settingsState.sound;localStorage.setItem('cg_settings_v5',JSON.stringify(settingsState));applySettings();if(settingsState.sound)playClick(.09);toast(settingsState.sound?'Sonidos activados':'Sonidos desactivados')};
+document.querySelectorAll('.switch').forEach(s=>s.onclick=()=>{settingsState[s.dataset.key]=!settingsState[s.dataset.key];localStorage.setItem('cg_settings_v5',JSON.stringify(settingsState));applySettings();if(s.dataset.key==='music'){settingsState.music?startMusic():stopMusic()}if(settingsState.sound)playClick(.07)});
+const profileBtn=document.getElementById('profileBtn'); if(profileBtn)profileBtn.onclick=()=>{openAccountModal();playClick(.07)};
+document.querySelectorAll('.btn,.tabs button,.brand').forEach(el=>el.addEventListener('click',()=>playClick(.045)));
+const FIREBASE_CONFIG={
+  apiKey:"AIzaSyBTt7CW2DUkpgrXScEK4GRDivf4exoUEWI",
+  authDomain:"chunkgamess.firebaseapp.com",
+  projectId:"chunkgamess",
+  storageBucket:"chunkgamess.firebasestorage.app",
+  messagingSenderId:"901976548731",
+  appId:"1:901976548731:web:401a518a9779b185d1c9de",
+  measurementId:"G-5GDEELVZ8K"
+};
+let firebaseReady=false, auth=null, db=null, firebaseUser=null, suggestionsUnsub=null;
+const NAME_KEY='cg_profile_v1';
+function getProfile(){try{return JSON.parse(localStorage.getItem(NAME_KEY)||'null')}catch{return null}}
+function getProfileName(){return getProfile()?.name||''}
+function getProfileUid(){const p=getProfile();if(p?.uid)return p.uid;let uid;try{uid='local_'+crypto.randomUUID()}catch{uid='local_'+Date.now()+'_'+Math.random().toString(36).slice(2)};localStorage.setItem(NAME_KEY,JSON.stringify({uid,name:'',changedAt:0}));return uid}
+function escapeHtml(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function skinUrl(name,type='body',size=180){return name?'https://mc-heads.net/'+type+'/'+encodeURIComponent(name)+'/'+size:''}
+function accountAvatar(name=getProfileName()){return skinUrl(name,'avatar',128)||'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"%3E%3Crect width="64" height="64" rx="32" fill="%23171b27"/%3E%3Ccircle cx="32" cy="25" r="10" fill="%237cf3ff"/%3E%3Cpath d="M13 56c3-13 11-19 19-19s16 6 19 19" fill="%238b76ff"/%3E%3C/svg%3E'}
+function updateAccountUI(){const b=document.getElementById('profileBtn');if(!b)return;const n=getProfileName();b.title=n?'Nombre: '+n:'Elegir nombre';b.style.backgroundImage=n?'url("'+accountAvatar(n)+'")':'';b.style.backgroundSize='cover';b.style.backgroundPosition='center';}
+function openAccountModal(){const m=document.getElementById('accountModal');if(!m)return;m.classList.add('open');document.body.classList.add('modal-open');renderAccountContent()}
+function closeAccountModal(){const m=document.getElementById('accountModal');if(!m)return;m.classList.remove('open');document.body.classList.remove('modal-open')}
+async function saveName(){const input=document.getElementById('displayNameInput');if(!input)return;const name=input.value.trim().replace(/\s+/g,' '),old=getProfile();if(old?.name)return toast('Ya tienes un nombre. No puedes cambiarlo.');if(name.length<2)return toast('Escribe un nombre válido');if(name.length>24)return toast('Máximo 24 caracteres');const uid=firebaseUser?.uid||old?.uid||getProfileUid();const profile={uid,name,changedAt:Date.now()};localStorage.setItem(NAME_KEY,JSON.stringify(profile));if(firebaseReady&&firebaseUser){try{await db.collection('profiles').doc(firebaseUser.uid).set({uid:firebaseUser.uid,name,createdAt:firebase.firestore.FieldValue.serverTimestamp()},{merge:true})}catch(e){console.warn('No se pudo sincronizar el perfil',e)}}updateAccountUI();closeAccountModal();renderSuggestions();toast('Nombre guardado para siempre');playClick(.1)}
+function renderAccountContent(){const el=document.getElementById('accountContent');if(!el)return;const n=getProfileName();el.innerHTML='<div class="account-profile">'+(n?'<img class="account-skin" src="'+skinUrl(n,'body',240)+'" alt="Skin de '+escapeHtml(n)+'">':'')+'<div><div class="account-name">'+escapeHtml(n||'Sin nombre')+'</div><div class="account-email">'+(n?'Skin de Minecraft asociada al nombre':'Elige tu nombre público')+'</div></div></div><label style="display:block;font-size:13px;color:#9ca2b2;margin:16px 0 7px">Tu nombre público</label>'+(n?'<div class="account-note" style="margin-top:12px">Tu nombre es <strong>'+escapeHtml(n)+'</strong>. Ya está elegido y no se puede cambiar.</div>':'<input id="displayNameInput" maxlength="24" placeholder="Ej. ChunkPlayer" style="width:100%;padding:13px 14px;border-radius:12px;border:1px solid #ffffff18;background:#0b0e16;color:#fff;outline:none><div class="account-note">Solo podrás elegir el nombre una vez. Después no podrás cambiarlo.</div><button class="btn primary google-btn" onclick="saveName()">GUARDAR NOMBRE</button>')+'<div class="account-note">No necesitas poner tu Gmail. Si el nombre coincide con un jugador Premium de Minecraft, se mostrará su skin.</div>'}
+if(document.getElementById('accountModal'))document.getElementById('accountModal').addEventListener('click',e=>{if(e.target.id==='accountModal')closeAccountModal()});
+function initFirebase(){if(String(FIREBASE_CONFIG.apiKey).startsWith('PON_AQUI')){firebaseReady=false;return}try{firebase.initializeApp(FIREBASE_CONFIG);auth=firebase.auth();db=firebase.firestore();firebaseReady=true;auth.onAuthStateChanged(async user=>{firebaseUser=user;if(user){const snap=await db.collection('profiles').doc(user.uid).get().catch(()=>null);if(snap?.exists&&!getProfileName()){const x=snap.data();localStorage.setItem(NAME_KEY,JSON.stringify({uid:user.uid,name:x.name||'',changedAt:x.createdAt?.toMillis?x.createdAt.toMillis():Date.now()}));updateAccountUI()}renderSuggestions()}});auth.signInAnonymously().catch(e=>console.error('Auth anónima:',e));renderSuggestions()}catch(e){console.error(e);firebaseReady=false;toast('No se pudo conectar la comunidad')}}
+async function ensureCloudUser(){if(!firebaseReady||!auth)return null;if(auth.currentUser)return auth.currentUser;try{const r=await auth.signInAnonymously();return r.user}catch(e){console.error(e);return null}}
+async function saveSuggestion(){const input=document.getElementById('suggestion'),text=input?.value.trim();if(!text)return toast('Escribe algo primero');const name=getProfileName();if(!name){openAccountModal();return toast('Elige tu nombre antes de publicar')}if(!firebaseReady)return toast('La comunidad online aún no está conectada');const user=await ensureCloudUser();if(!user)return toast('No se pudo conectar con la comunidad');try{const today=new Date().toISOString().slice(0,10),last=localStorage.getItem('cg_day_'+user.uid);if(last===today)return toast('Ya has enviado una sugerencia hoy');await db.collection('suggestions').add({text,uid:user.uid,name,avatar:skinUrl(name,'avatar',128),createdAt:firebase.firestore.FieldValue.serverTimestamp(),likes:0,dislikes:0});localStorage.setItem('cg_day_'+user.uid,today);input.value='';toast('Sugerencia publicada para toda la comunidad');playClick(.1)}catch(e){console.error(e);toast('No se pudo publicar. Revisa Firestore y sus reglas')}}
+async function reactSuggestion(id,type){if(!firebaseReady)return toast('La comunidad online aún no está conectada');const user=await ensureCloudUser();if(!user)return toast('No se pudo conectar');const ref=db.collection('suggestions').doc(id),voteRef=ref.collection('votes').doc(user.uid);try{await db.runTransaction(async tx=>{const [doc,vote]=await Promise.all([tx.get(ref),tx.get(voteRef)]);if(!doc.exists)return;const d=doc.data()||{},old=vote.exists?vote.data().type:null;let likes=Number(d.likes||0),dislikes=Number(d.dislikes||0);if(old===type){return}if(old==='like')likes=Math.max(0,likes-1);if(old==='dislike')dislikes=Math.max(0,dislikes-1);if(type==='like')likes++;else dislikes++;tx.set(voteRef,{type,at:firebase.firestore.FieldValue.serverTimestamp()});tx.update(ref,{likes,dislikes})});playClick(.05)}catch(e){console.error(e);toast('No se pudo registrar el voto')}}
+async function renderSuggestions(){const box=document.getElementById('suggestionsList');if(!box)return;if(!firebaseReady){box.innerHTML='<div class="panel panel-pad" style="color:#777">La comunidad online necesita conectar Firebase para que todos vean comentarios y votos.</div>';return}if(suggestionsUnsub)suggestionsUnsub();box.innerHTML='<div class="panel panel-pad" style="color:#777">Cargando comunidad…</div>';suggestionsUnsub=db.collection('suggestions').orderBy('createdAt','desc').limit(30).onSnapshot(async snap=>{if(snap.empty){box.innerHTML='<div class="panel panel-pad" style="color:#777">Todavía no hay sugerencias. ¡Sé el primero!</div>';return}let myVotes={};const u=auth?.currentUser;if(u){const votes=await Promise.all(snap.docs.map(d=>d.ref.collection('votes').doc(u.uid).get().catch(()=>null)));votes.forEach((v,i)=>{if(v?.exists)myVotes[snap.docs[i].id]=v.data().type})}box.innerHTML=snap.docs.map(doc=>{const x=doc.data(),date=x.createdAt?.toDate?x.createdAt.toDate().toLocaleDateString('es-ES'):'Ahora',avatar=x.avatar||accountAvatar(x.name),v=myVotes[doc.id];return '<div class="suggestion"><div class="comment-user"><img class="comment-avatar" src="'+escapeHtml(avatar)+'"><span class="comment-name">'+escapeHtml(x.name||'Usuario')+'</span><span style="margin-left:auto;font-size:9px;color:#687080">'+date+'</span></div><p>'+escapeHtml(x.text)+'</p><div class="comment-actions"><button class="react-btn '+(v==='like'?'active-like':'')+'" onclick="reactSuggestion(\''+doc.id+'\',\'like\')">👍 <span>'+(Number(x.likes)||0)+'</span></button><button class="react-btn '+(v==='dislike'?'active-dislike':'')+'" onclick="reactSuggestion(\''+doc.id+'\',\'dislike\')">👎 <span>'+(Number(x.dislikes)||0)+'</span></button></div></div>'}).join('')},e=>{console.error(e);box.innerHTML='<div class="panel panel-pad" style="color:#777">No se pudo cargar la comunidad. Revisa la configuración de Firebase.</div>'})}
+initFirebase();
+updateAccountUI();
+applySettings();renderSuggestions();
+const volume=document.getElementById('volume'),volumeValue=document.getElementById('volumeValue'); if(volume){volume.value=settingsState.volume;volumeValue.textContent=settingsState.volume+'%';volume.oninput=()=>{settingsState.volume=+volume.value;volumeValue.textContent=settingsState.volume+'%';localStorage.setItem('cg_settings_v5',JSON.stringify(settingsState));if(master)master.gain.value=Math.max(.01,settingsState.volume/100*.16)}}
+document.addEventListener('pointerdown',()=>{if(settingsState.sound){playClick(.035);if(settingsState.music)startMusic()}},{once:true});
+</script>
+</body></html>
